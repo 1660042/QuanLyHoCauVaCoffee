@@ -22,8 +22,24 @@ abstract class EloquentRepository implements RepositoryInterface {
         return $this->_model->all();
     }
 
+    public function getAllWithParam($key, $value) {
+        return $this->_model->where([
+            [$key, '=', $value],
+            // ['status', '=', 1],
+            // ['view', '=', 1]
+        ])->get();
+    }
+
     public function find($id) {
         $result = $this->_model->find($id);
+        return $result;
+    }
+
+    public function findWithParam($id, $key, $value) {
+        $result = $this->_model->where([
+            [$key, '=', $value],
+            ['id', '=', $id]
+        ])->get();
         return $result;
     }
 
