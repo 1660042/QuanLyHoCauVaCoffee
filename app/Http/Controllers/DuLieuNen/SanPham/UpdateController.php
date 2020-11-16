@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\DuLieuNen\SanPham;
 
-use App\LoaiSanPham;
+use App\SanPham;
 use Carbon\Carbon;
-use App\Repositories\LoaiSanPham\SanPhamRepositoryInterface;
+use App\Repositories\SanPham\SanPhamRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoaiSanPham\EditRequest;
+use App\Http\Requests\SanPham\EditRequest;
 
 class UpdateController extends Controller
 {
@@ -28,7 +28,7 @@ class UpdateController extends Controller
 
         $sanPhamData = $this->getFilterData($request, $sanPhamFillable);
        //dd($loaiSanPhamData);
-        $this->result = $this->loaiSanPham->update($id, $sanPhamData);
+        $this->result = $this->sanPham->update($id, $sanPhamData);
 
         $this->message = $this->getMessage($this->result);
         

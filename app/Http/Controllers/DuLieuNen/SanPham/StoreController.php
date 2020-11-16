@@ -39,12 +39,7 @@ class StoreController extends Controller
         $sanPhamData = $this->getFilterData($request, $sanPhamFillable);
         //dd($SanPhamData);
         $this->result = $this->sanPham->create($sanPhamData);
-
-
-        if($this->result) {
-            $this->result = $this->create_quydoi_donvi($request);
-        }
-
+        
         $this->message = $this->getMessage($this->result);
         
 
@@ -54,9 +49,9 @@ class StoreController extends Controller
 
 	private function getRoute($result) {
         if(!$result) {
-            return 'dln.SanPham.create';
+            return 'dln.sanpham.create';
         }
-		return 'dln.SanPham.index';
+		return 'dln.sanpham.index';
 	}
 
     private function getFillable($name) {
@@ -86,22 +81,6 @@ class StoreController extends Controller
             ];
         }
         return $message;
-    }
-
-    private function check_valid_unit($request) {
-        return $validatedData = $request->validate([
-            'unit2_fk' => 'required|different:unit_fk',
-        ]);
-    }
-
-    private function create_quydoi_donvi($request) {
-        if($request->has('qty2')) {
-            if($this->check_valid_unit($request)) {
-                return $this->sanPham->create_quydoi_donvi($this->sanPham, $this->unit_fk, '1', $request->unit2_fk, $request->qty2);
-            }
-        }
-        
-        
     }
 
 }

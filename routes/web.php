@@ -25,7 +25,11 @@ Route::group(['middleware' => []], function () {
 
     Route::group(['namespace' => 'BanHangPages', 'prefix' => 'banhang', 'as'=>'banhang'], function() {
         Route::group(['namespace' => 'Order', 'prefix' => 'order', 'as'=>'.order'], function() {
-            
+            Route::get('/', 'IndexController')->name('.index');
+            Route::get('/create', 'CreateController')->name('.create');
+            // Route::post('/store', 'StoreController')->name('.store');
+            // Route::get('/edit/{id}', 'EditController')->name('.edit');
+            // Route::put('/update/{id}', 'UpdateController')->name('.update');
         });
     });
 

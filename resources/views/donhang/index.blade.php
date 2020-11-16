@@ -7,7 +7,7 @@
             <div class="box-header">
               <!-- <h3 class="box-title">List categories</h3> -->
               <div class="create box-title">
-                <a class="btn btn-primary" href="{{ route('dln.sanpham.create', $type) }}"><i class="fa fa-plus-circle"></i> Create &nbsp;</a>
+                <a class="btn btn-primary" href="{{ route('banhang.order.create') }}"><i class="fa fa-plus-circle"></i> Create &nbsp;</a>
               </div>
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
@@ -23,31 +23,30 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th class="text-center">ID</th>
-				  <th class="text-center">Tên loại sản phẩm</th>
-                  <th class="text-center">Trạng thái</th>
-                  <th class="text-center">Loại sản phẩm</th>
-                  <th class="text-center">Giá bán</th>
-                  <th class="text-center">Ngày tạo</th>
-                  <th class="text-center">Người tạo</th>
-                  <th class="text-center">Ngày sửa</th>
-                  <th class="text-center">Người sửa</th>
-                  <th class="text-center">Tác vụ</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Tên</th>
+                    <th class="text-center">Số điện thoại</th>
+                    <th class="text-center">Ngày tạo</th>
+                    <th class="text-center">Người tạo</th>
+                    <th class="text-center">Ngày sửa</th>
+                    <th class="text-center">Người sửa</th>
+                    <th class="text-center">Trạng thái</th>
+                    <th class="text-center">Tác vụ</th>
                 </tr>
-				@foreach($listSanPham as $sanpham)
+				@foreach($donHang as $dh)
                     <tr>
-                        <td class="text-center">#{{ $sanpham->id }}</td>
-                        <td class="text-center">{{ $sanpham->name }}</td>
-                        <td class="text-center">{{ $sanpham->status }}</td>
-                        <td class="text-center">{{ $sanpham->type_product_fk }}</td>
-                        <td class="text-center">{{ $sanpham->price }}</td>
-                        <td class="text-center">{{ $sanpham->created_at }}</td>
-						<td class="text-center">{{ $sanpham->created_by }}</td>
-						<td class="text-center">{{ is_null($sanpham->updated_by) || strlen($sanpham->updated_by) == 0 ? "" : $sanpham->updated_at }}</td>
-						<td class="text-center">{{ $sanpham->updated_by }}</td>
+                        <td class="text-center">#{{ $dh->id }}</td>
+                        <td class="text-center">{{ $dh->name }}</td>
+                        <td class="text-center">{{ $dh->status }}</td>
+                        <td class="text-center">{{ $dh->type_product_fk }}</td>
+                        <td class="text-center">{{ $dh->price }}</td>
+                        <td class="text-center">{{ $dh->created_at }}</td>
+						<td class="text-center">{{ $dh->created_by }}</td>
+						<td class="text-center">{{ is_null($dh->updated_by) || strlen($dh->updated_by) == 0 ? "" : $dh->updated_at }}</td>
+						<td class="text-center">{{ $dh->updated_by }}</td>
                         </td>
                         <td class="text-center">
-                            <a href="{{ route('dln.sanpham.edit', [$sanpham->id, $type]) }}" class="btn-sm btn-primary"><i class="fa fa-edit"></i> Sửa</a>
+                            <!-- <a href="{{ route('dln.donhang.edit', [$dh->id]) }}" class="btn-sm btn-primary"><i class="fa fa-edit"></i> Sửa</a> -->
                             <!-- <a class="btn-sm btn-danger"><i class="fa fa-trash-o"></i> Delete</a> -->
                         </td>
 

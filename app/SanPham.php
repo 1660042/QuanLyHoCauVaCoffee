@@ -13,6 +13,7 @@ class SanPham extends Model
         'type_product_fk',
         'type',
         'cost_price',
+        'unit_fk',
         'price',
         'status',
         'created_at',

@@ -11,15 +11,4 @@ class SanPhamEloquentRepository extends EloquentRepository implements SanPhamRep
         return \App\SanPham::class;
     }
 
-    public function create_quydoi_donvi($product_fk, $unit1_fk, $qty1, $unit2_fk, $qty2) {
-        return $this->_model->insert([
-            [
-                'product_fk' => $product_fk,
-                'unit1_fk' => $unit1_fk,
-                'qty1' => '1',
-                'unit2_fk' => $unit2_fk,
-                'qty2' => $qty2
-            ]
-        ]);
-    }
 }

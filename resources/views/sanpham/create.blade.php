@@ -71,19 +71,6 @@
 							@endforeach
                   		</select>
 					</div>
-					<div class="form-group" >
-						<label>Đơn vị quy đổi</label></br>
-						<div class="form-group col-xs-3">
-							<input class="form-control" name="qty2" type="number" value="">
-						</div>
-						<div class="form-group col-xs-9">
-                        	<select class="form-control" name="unit2_fk">
-								@foreach($donVi as $dv)
-								<option value="{{ $dv->id }}">{{ $dv->name }}</option>
-								@endforeach
-						 	</select>
-						</div>
-					</div>
 					
                     <div class="form-group">
                         <label>Hoạt động </label>
@@ -101,11 +88,3 @@
 </div>
 
 @endsection
-@push('getdonvi')
-<script>
-	function getDonVi(sel) {
-		let donVi = sel.options[sel.selectedIndex].text;
-		document.getElementById('setDonVi').innerHTML = donVi;
-	}
-</script>
-@endpush
