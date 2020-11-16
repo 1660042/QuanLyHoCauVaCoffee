@@ -13,6 +13,11 @@ class IndexController extends Controller
     }
     public function __invoke(Request $request)
     {   
+
+        // $a = $this->selectTimesOfDay();
+
+        // dd($a);
+
         $donVi = $this->donVi->getAll();
         $data = compact('donVi');
         return view($this->getView(), $data);
@@ -20,5 +25,14 @@ class IndexController extends Controller
 
     private function getView() {
         return 'donvi.index';
+    }
+
+    public function selectTimesOfDay() {
+        $open_time = strtotime("17:00");
+        $close_time = strtotime("23:59");
+        $now = time();
+        $output = "";
+        
+        return (($close_time - $open_time)/60) % 60;
     }
 }

@@ -20,6 +20,10 @@ class CreateTableOrderProductTable extends Migration
             $table->double('price')->default(0);
             $table->bigInteger('unit_fk')->nullable();
             $table->bigInteger('order_fk');
+            $table->integer('tu_gio');
+            $table->integer('tu_phut');
+            $table->integer('den_gio');
+            $table->integer('den_phut');
             $table->tinyInteger('status')->default('0');
             $table->tinyInteger('view')->default('0');
             $table->integer('created_by')->nullable();
