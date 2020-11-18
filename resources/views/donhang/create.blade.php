@@ -87,7 +87,8 @@
                                     <th class="text-center">Dịch vụ</th>
                                     <th class="text-center">Thời gian bắt đầu</th>
                                     <th class="text-center">Thời gian kết thúc</th>
-                                    <th class="text-center">Giá (kvnd)</th>
+                                    <th class="text-center">Giá</th>
+                                    <th class="text-center"></th>
                                 </tr>
                             </table>
                         </div>
@@ -99,7 +100,8 @@
                                     <th class="text-center">Sản phẩm</th>
                                     <th class="text-center">Số lượng</th>
                                     <th class="text-center">Đơn vị</th>
-                                    <th class="text-center">Giá (kvnd)</th>
+                                    <th class="text-center">Giá</th>
+                                    <th class="text-center" style="width: 5%"></th>
                                 </tr>
                             </table>
                         </div>
@@ -123,7 +125,7 @@
             let name = document.getElementById('name_'+id).textContent;
             let unit = document.getElementById('unit_'+id).textContent;
             let price = document.getElementById('price_'+id).textContent;
-            $html = "<tr onclick='giamSoLuong(this)' ><td class='text-center'>"+name+"</td><td class='text-center'><input id='hd_"+id+"' value='1' type='text' style='width: 30%;'></td><td class='text-center'>"+unit+"</td><td class='text-center'><input type='text' value='"+price+"' style='width: 50%;'></td></tr>";
+            $html = "<tr><td class='text-center'>"+name+"</td><td class='text-center'><i onclick='giamSoLuong(this)' class='fa fa-lg fa-minus-square' style='color: #006ea6' aria-hidden='true'></i> <input id='hd_"+id+"' value='1' type='text' style='width: 30%;'> <i onclick='tangSoLuong(this)' class='fa fa-lg fa-plus-square' style='color: #006ea6' aria-hidden='true'></i></td><td class='text-center'>"+unit+"</td><td class='text-center'><input type='text' value='"+price+"' style='width: 50%;'></td><td style='width: 5%'><i onclick='giamSoLuong(this)' class='fa fa-close' style='color: #ff0022' aria-hidden='true'></i></td></tr>";
             var hoaDonSanPham = document.getElementById('hoaDonSanPham');
             $hdsp = $('#hoaDonSanPham');
             //alert(hoaDonSanPham);
@@ -133,12 +135,18 @@
     }
 
     function giamSoLuong(r) {
-        $soLuong = r.childNodes[1].childNodes[0].value;
-        if($soLuong > 1) {
-            r.childNodes[1].childNodes[0].value = parseInt($soLuong) - 1;
+        $soLuong = $(r).next().val();
+
+        if(parseInt($soLuong) > 1) {
+            $(r).next().val(parseInt($soLuong) - 1);
         } else {
-            r.remove();
+            $(r).parent().parent().remove();
         }
+    }
+
+    function tangSoLuong(r) {
+        $soLuong = $(r).prev().val();
+        $(r).prev().val(parseInt($soLuong) + 1);
     }
 
 </script>
