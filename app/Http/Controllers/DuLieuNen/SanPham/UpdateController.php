@@ -24,6 +24,11 @@ class UpdateController extends Controller
         if(!$request->has('status')) {
             $this->mergeRequest($request, 'status', '0');
         }
+
+        if(!$request->has('is_time')) {
+            $this->mergeRequest($request, 'is_time', '0');
+        }
+
         $this->mergeRequest($request, 'updated_at', Carbon::now());
 
         $sanPhamData = $this->getFilterData($request, $sanPhamFillable);

@@ -18,4 +18,11 @@ class LoaiSanPhamEloquentRepository extends EloquentRepository implements LoaiSa
             // ['view', '=', 1]
         ])->get();
     }
+
+    public function getAllActive() {
+        return $this->_model->where([
+            ['status', '=', 1],
+            // ['view', '=', 1]
+        ])->get();
+    }
 }

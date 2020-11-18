@@ -6,5 +6,5 @@ interface SanPhamRepositoryInterface {
 
     
     public function getModel();
-
+    public function getAllActive();
 }

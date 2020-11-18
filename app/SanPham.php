@@ -16,11 +16,16 @@ class SanPham extends Model
         'unit_fk',
         'price',
         'status',
+        'is_time',
         'created_at',
         'created_by',
         'updated_at',
         'updated_by',
     ];
+
+    public function getDonVi() {
+        return $this->belongsTo('App\DonVi', 'unit_fk');
+    }
 
     // public function getPivots($idQuyen, $idLoaiSanPham) {
     //     return $this->belongsToMany('App\Quyen', 'quyen_LoaiSanPham', 'quyen_fk', 'LoaiSanPham_fk');

@@ -26,12 +26,24 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100|unique:products',
-            'cost_price' => 'required|max:50000000|numeric',
-            'price' => 'required|max:50000000|numeric',
+            // 'cost_price' => 'required|max:50000000|numeric',
+            // 'price' => 'required|max:50000000|numeric',
             'type_product_fk' => 'required',
             'unit_fk' => 'required',
         ];
     }
+
+    public function withValidator($validator) {
+
+        $validator->sometimes(['cost_price', 'price'], 'required|max:50000000|numeric', function($input) {
+            return $input->type > 0;
+        });
+
+        $validator->sometimes(['type'], 'required|numeric', function($input) {
+            return ($input->type == 1 || $input->type == 0);
+        });
+    }
+
 
     public function attributes() {
         return [
@@ -50,15 +62,4 @@ class CreateRequest extends FormRequest
             'unique' => ':attribute đã tồn tại trong hệ thống',
         ];
     }
-
-    // public function withValidator($validator)
-    // {
-    //     if ($validator->fails()) {
-    //         Session::flash('message', 'Lỗi khi tạo quyền mới, vui lòng kiểm tra lại!');
-    //         Session::flash('type', 'danger');
-    //     } else {
-
-    //     }
-
-    // }
 }

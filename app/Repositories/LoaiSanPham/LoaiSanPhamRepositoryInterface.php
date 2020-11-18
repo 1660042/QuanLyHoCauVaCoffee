@@ -7,4 +7,5 @@ interface LoaiSanPhamRepositoryInterface {
     
     public function getModel();
     public function getListLoaiSanPhamActive($key, $value);
+    public function getAllActive();
 }

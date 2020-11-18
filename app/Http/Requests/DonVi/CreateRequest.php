@@ -24,9 +24,13 @@ class CreateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|max:100|unique:units',
         ];
+        
+        return $rules;
+
+        
     }
 
     public function attributes() {

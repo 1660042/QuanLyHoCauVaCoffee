@@ -23,6 +23,7 @@ class CreateTableProductsTable extends Migration
             $table->tinyInteger('status')->default('0');
             $table->tinyInteger('view')->default('0');
             $table->tinyInteger('type')->nullable();
+            $table->tinyInteger('is_time')->nullable();
             // $table->timestamp('created_at');
             $table->integer('created_by')->nullable();
             // $table->timestamp('updated_at');

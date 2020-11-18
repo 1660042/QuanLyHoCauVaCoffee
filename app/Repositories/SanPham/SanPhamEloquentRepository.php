@@ -11,4 +11,11 @@ class SanPhamEloquentRepository extends EloquentRepository implements SanPhamRep
         return \App\SanPham::class;
     }
 
+    public function getAllActive() {
+        return $this->_model->where([
+            ['status', '=', 1],
+            // ['view', '=', 1]
+        ])->get();
+    }
+
 }

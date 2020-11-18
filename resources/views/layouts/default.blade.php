@@ -623,5 +623,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
 @stack('getdonvi')
+@stack('orderSP')
 </body>
 </html>

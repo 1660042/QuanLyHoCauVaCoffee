@@ -25,6 +25,7 @@
                         <input type="text" class="form-control" name="name" value="{{ $sanPham[0]->name }}" placeholder="Điền vào tên sản phẩm">
                         <input type="hidden" class="form-control" name="type" value="{{ $type }}">
 					</div>
+                    @if($type > 0)
 					@error('cost_price')
                     <span class="invalid-feedback" style="color: red" role="alert">
                         <strong>{{ $message }}</strong>
@@ -43,6 +44,7 @@
                         <label>Giá bán</label>
                         <input type="text" class="form-control" name="price" value="{{ $sanPham[0]->price }}" placeholder="Điền vào giá bán sản phẩm">
 					</div>
+                    @endif
 					@error('type_product_fk')
                     <span class="invalid-feedback" style="color: red" role="alert">
                         <strong>{{ $message }}</strong>

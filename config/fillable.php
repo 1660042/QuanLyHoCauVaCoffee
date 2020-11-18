@@ -15,6 +15,7 @@ return [
         'name',
         'type_product_fk',
         'type',
+        'is_time',
         'cost_price',
         'unit_fk',
         'price',

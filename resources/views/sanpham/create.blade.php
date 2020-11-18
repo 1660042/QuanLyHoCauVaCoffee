@@ -24,6 +24,7 @@
                         <input type="text" class="form-control" name="name" placeholder="Điền vào tên sản phẩm">
                         <input type="hidden" class="form-control" name="type" value="{{ $type }}">
 					</div>
+                    @if($type > 0)
 					@error('cost_price')
                     <span class="invalid-feedback" style="color: red" role="alert">
                         <strong>{{ $message }}</strong>
@@ -42,6 +43,7 @@
                         <label>Giá bán</label>
                         <input type="text" class="form-control" name="price" placeholder="Điền vào giá bán sản phẩm">
 					</div>
+                    @endif
 					@error('type_product_fk')
                     <span class="invalid-feedback" style="color: red" role="alert">
                         <strong>{{ $message }}</strong>
@@ -71,7 +73,12 @@
 							@endforeach
                   		</select>
 					</div>
-					
+                    @if($type == 0)
+                    <div class="form-group">
+                        <label>Tính theo giờ </label>
+                        <input type="checkbox" name="is_time" value="1" class="flat-red" checked>
+                    </div>
+                    @endif
                     <div class="form-group">
                         <label>Hoạt động </label>
                         <input type="checkbox" name="status" value="1" class="flat-red" checked>

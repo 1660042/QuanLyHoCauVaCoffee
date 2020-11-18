@@ -59,8 +59,8 @@ class StoreController extends Controller
     }
 
     private function getFilterData($request, $fillable) {
-        // return array_filter($request->only($fillable), 'strlen');
-        return array_filter($request->only($fillable));
+        return array_filter($request->only($fillable), 'strlen');
+        //return array_filter($request->only($fillable));
     }
 
     //Thêm 1 field vào request

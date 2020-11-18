@@ -34,6 +34,11 @@ class StoreController extends Controller
         if(!$request->has('status')) {
             $this->mergeRequest($request, 'status', '0');
         }
+
+        if(!$request->has('is_time')) {
+            $this->mergeRequest($request, 'is_time', '0');
+        }
+
         $this->mergeRequest($request, 'created_at', Carbon::now());
 
         $sanPhamData = $this->getFilterData($request, $sanPhamFillable);
@@ -59,8 +64,8 @@ class StoreController extends Controller
     }
 
     private function getFilterData($request, $fillable) {
-        // return array_filter($request->only($fillable), 'strlen');
-        return array_filter($request->only($fillable));
+        return array_filter($request->only($fillable), 'strlen');
+        //return array_filter($request->only($fillable));
     }
 
     //Thêm 1 field vào request
@@ -82,5 +87,9 @@ class StoreController extends Controller
         }
         return $message;
     }
+
+    // private function customValid() {
+        
+    // }
 
 }
